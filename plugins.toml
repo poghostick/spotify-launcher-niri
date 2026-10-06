@@ -1,9 +1,0 @@
-id         = "me/hello"
-name       = "Hello"
-version    = "1.0.0"
-plugin_api = 3
-author     = "me"
-
-[[widget]]
-id    = "hello"
-entry = "widget.luau"
