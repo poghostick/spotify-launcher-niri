@@ -14,16 +14,23 @@ Declare it in your niri config:
 workspace "spotify-scratch"
 ```
 
-Optional: make Spotify open floating when shown:
+### Floating when launched from the widget
+
+The widget starts Spotify as a native Wayland client, whose app-id is `spotify`
+(lowercase). A normal `spotify-launcher` start runs under XWayland as `Spotify`.
+niri regexes are case-sensitive, so this rule floats only widget-launched windows:
 
 ```kdl
 window-rule {
-  match app-id="(?i)^spotify$"
+  match app-id="^spotify$"
   open-floating true
   default-column-width { proportion 0.9; }
   default-window-height { proportion 0.9; }
 }
 ```
+
+Do not add the Wayland flags to `extra_arguments` in `spotify-launcher.conf`,
+or every Spotify start will float.
 
 ## Requirements
 
